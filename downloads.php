@@ -2,6 +2,9 @@
 	// No direct access
 	defined('_JEXEC') or die('Restricted access');
 
+	// dependencies / include common classes / helpers
+	include_once JPATH_ADMINISTRATOR . '/components/com_downloads/helpers/helper.php';
+
 	// Require the base controller
 	require_once(JPATH_COMPONENT.DS.'controller.php');
 
@@ -18,6 +21,7 @@
 
 
 	JHTML::_('stylesheet', 'component.css', JURI::base() .'/components/com_downloads/css/');
+
 
 	// Create the controller
 	$cClassname = 'DownloadsController'.$controller;

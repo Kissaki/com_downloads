@@ -25,3 +25,33 @@
 		}
 	?>
 </div>
+<script type="text/javascript">
+	/*<![CDATA[*/
+	function toggle_dl(id) {
+		if (document.getElementById(id)) {
+			if (document.getElementById(id).style.display == 'block') {
+				document.getElementById(id).style.display = 'none';
+			}
+			else {
+				document.getElementById(id).style.display = 'block';
+			}
+		}
+	}
+	function collapse_all(classname) {
+		var els = document.getElementsByTagName('div');
+		for (var i=0; i < els.length; i++) {
+			if (els[i].className == classname) {
+				els[i].style.display = 'none';
+			}
+		}
+	}
+	function expand_all(classname) {
+		var els = document.getElementsByTagName('div');
+		for (var i=0; i < els.length; i++) {
+			if (els[i].className == classname) {
+				els[i].style.display = 'block';
+			}
+		}
+	}
+	/*]]>*/
+</script>

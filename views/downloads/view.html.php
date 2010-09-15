@@ -18,6 +18,13 @@
 			$downloads =& $model->getDownloads();
 			$this->assignRef('downloads', $downloads);
 
+			$downloadFiles = array();
+			foreach ($downloads as $download) {
+				$files =& $model->getFiles($download->dlid);
+				$downloadFiles[$download->dlid] = $files;
+			}
+			$this->assignRef('downloadFiles', $downloadFiles);
+
 	        parent::display($tpl);
 	    }
 	}

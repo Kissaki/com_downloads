@@ -13,6 +13,12 @@
 #com_download_wrap h6 {
 	color:#ffffff;
 }
+#com_download_wrap hr {
+	border-top: 1px solid black;
+}
+#com_download_wrap ul {
+	list-style-type: none;
+}
 .dl_cat_list {
 	border-left: 1px solid orange; margin-left: 8px; padding-left: 2px;
 	list-style-type: none;
@@ -23,6 +29,9 @@
 }
 .dl_topline {
 	margin: 2px;
+}
+.dl_topline_nfo {
+	float: right;
 }
 .dl_info {
 	margin: 0px; display: block;
@@ -35,4 +44,25 @@
 }
 .dl_bottomline {
 	margin: 4px 2px;
+}
+.dl_actions {
+	float: right;
+}
+.dl_files {
+	margin-left: 4px;
+}
+.dl_file {
+	border-top: 1px solid black;
+}
+.dl_file_head {
+	height: 16px; line-height: 16px; background-image: url(&quot;images/download.png&quot;); background-repeat: no-repeat; padding-left: 20px;
+}
+.dl_file_nfo {
+	margin-left: 20px;
+}
+.dl_file_actions {
+	float: right;
+}
+.dl_file_nfo_label {
+	font-weight: bold;
 }
