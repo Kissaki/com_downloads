@@ -1,0 +1,19 @@
+
+
+
+.dl_cat_list {
+	border-left: 1px solid orange; margin-left: 8px; padding-left: 2px;
+}
+
+.dl_download {
+	background-color: rgb(102, 102, 102); border: 1px solid silver; margin-bottom: 6px;
+}
+.dl_topline {
+	margin: 2px;
+}
+.dl_info {
+	margin: 0px; display: block;
+}
+.dl_title {
+	font-size: 120%; font-weight: bold;
+}
