@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
 
-class TableDownloadsDownloads extends JTable
+class TableDownloads extends JTable
 {
     /**
      * Primary Key
