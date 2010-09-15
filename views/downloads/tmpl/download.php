@@ -1,19 +1,32 @@
 <?php defined('_JEXEC') or die('Restricted access'); ?>
 <div class="dl_download">
+	<?php $dlDate = new JDate($download->date); ?>
 	<div class="dl_topline">
-		<div style="float: right;">1 Files, Last Update: 01.05.2010</div>
-		<a href="javascript:toggle_dl('dl<?php echo $download->id; ?>')">+</a>
+		<div style="float: right;"><?php echo $download->nr_files; ?> Files, Last Update: <?php echo $dlDate->toFormat(); ?></div>
+		<a href="javascript:toggle_dl('dl<?php echo $download->dlid; ?>');">+</a>
 		<span class="dl_title">
-			<a title="view download CCCP &ndash; Combined Community Codec Pack" href="index.php?dlid=194">
-				<?php echo $download->title; ?>
+			<a title="view <?php echo $download->name; ?>" href="<?php echo JRoute::_('index.php?option=com_downloads&dlid=' . $download->dlid); ?>">
+				<?php echo $download->name; ?>
 			</a>
 		</span>
 	</div>
-	<div class="dl_info" id="dl<?php echo $download->id; ?>">
-		<div style="padding: 5px 5px 10px; background-color: rgb(68, 68, 68); min-height: 150px;" class="dl_desc">
-								 Video Codes für das Abspielen von Videos.				</div>
-		<div style="margin: 4px 2px;" class="dl_bottomline">
-			<div style="float: right;"><a title="edit download CCCP &ndash; Combined Community Codec Pack" href="edit.php?dlid=194">edit</a> <a title="remove download CCCP &ndash; Combined Community Codec Pack" href="remove.php?dlid=194">remove</a></div>					<img alt="Platform:" src="http://dooc-clan.de/modules/mydownloads/images/platform.gif"> Windows					 <img alt="Homepage:" src="http://dooc-clan.de/modules/mydownloads/images/home.gif"> <a rel="external" title="homepage of CCCP &ndash; Combined Community Codec Pack" href="http://www.cccp-project.net/" target="_blank">http://www.cccp-project.net/</a>
+	<div class="dl_info" id="dl<?php echo $download->dlid; ?>">
+		<div class="dl_desc">
+			<?php echo $download->desc; ?>
+		</div>
+		<div class="dl_bottomline">
+			<div class="dl_actions" style="float: right;">
+				<a title="<?php echo JText::_('edit download'); ?>" href="<?php echo JRoute::_('index.php?task=editdownload&dlid=' . $download->dlid); ?>">
+					<?php echo JText::_('edit'); ?>
+				</a>
+				<a title="<?php echo JText::_('remove download'); ?>" href="<?php echo JRoute::_('index.php?task=removedownload&dlid=' . $download->dlid); ?>">
+					<?php echo JText::_('remove'); ?>
+				</a>
+			</div>
+			<img alt="Platform:" src="http://dooc-clan.de/modules/mydownloads/images/platform.gif"/>
+			<?php echo $download->platform; ?>
+			<img alt="Homepage:" src="http://dooc-clan.de/modules/mydownloads/images/home.gif"/>
+			<a rel="external" title="homepage of CCCP &ndash; Combined Community Codec Pack" href="http://www.cccp-project.net/" target="_blank">http://www.cccp-project.net/</a>
 		</div>
 		<hr style="border-top: 1px solid black;">
 		<div style="margin-left: 4px;" class="dl_files">
@@ -27,3 +40,31 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	function toggle_dl(id) {
+		if (document.getElementById(id)) {
+			if (document.getElementById(id).style.display == 'block') {
+				document.getElementById(id).style.display = 'none';
+			}
+			else {
+				document.getElementById(id).style.display = 'block';
+			}
+		}
+	}
+	function collapse_all(classname) {
+		var els = document.getElementsByTagName('div');
+		for (var i=0; i < els.length; i++) {
+			if (els[i].className == classname) {
+				els[i].style.display = 'none';
+			}
+		}
+	}
+	function expand_all(classname) {
+		var els = document.getElementsByTagName('div');
+		for (var i=0; i < els.length; i++) {
+			if (els[i].className == classname) {
+				els[i].style.display = 'block';
+			}
+		}
+	}
+</script>

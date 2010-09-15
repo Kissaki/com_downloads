@@ -4,6 +4,7 @@
 	defined( '_JEXEC' ) or die( 'Restricted access' );
 
 	jimport( 'joomla.application.component.view');
+	jimport( 'joomla.utilities.date' );
 
 	/**
 	 * HTML View class for the HelloWorld Component

@@ -16,6 +16,9 @@
 		}
 	}
 
+
+	JHTML::_('stylesheet', 'component.css', JURI::base() .'/components/com_downloads/css/');
+
 	// Create the controller
 	$cClassname = 'DownloadsController'.$controller;
 	$controller = new $cClassname();
