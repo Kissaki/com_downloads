@@ -76,6 +76,13 @@
 			$categories =& $this->_getList($query);
 			return $categories;
 		}
+		function getCategory($categoryId)
+		{
+			$categoryId = intval($categoryId);
+			$query = 'SELECT * FROM #__' . self::TABLENAME_CATEGORIES . ' WHERE `cid` = ' . $categoryId . ' LIMIT 1;';
+			$categories =& $this->_getList($query);
+			return (count($categories) > 0 ? $categories[0] : null);
+		}
 		function getCategoryTree($parentCategoryId=0)
 		{
 			$categories =& $this->getCategories($parentCategoryId);
