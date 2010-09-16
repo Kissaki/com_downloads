@@ -21,7 +21,7 @@
 				<img alt="" src="<?php echo $imgPath; ?>/content/<?php echo $download->image; ?>">
 			</div>
 
-			<?php echo $download->desc; ?>
+			<?php echo nl2br($download->desc); ?>
 		</div>
 		<div class="dl_bottomline">
 			<!--<div class="dl_actions">
