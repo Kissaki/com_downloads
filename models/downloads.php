@@ -39,6 +39,10 @@
 
 			$query = 'SELECT * FROM #__' . self::TABLENAME_DOWNLOADS . ' ' . $queryCat . ' ORDER BY ' . $orderBy . ' ' . $orderDir . ';';
 			$downloadsList = $this->_getList($query);
+			// return empty array instead of null if no elements
+			if (empty($downloadsList)) {
+				$downloadsList = array();
+			}
 			return $downloadsList;
 		}
 
@@ -57,6 +61,10 @@
 
 			$query = 'SELECT * FROM #__' . self::TABLENAME_FILES . ' WHERE dlid = ' . $downloadId . ' ORDER BY `order` ASC, version DESC';
 			$files =& $this->_getList($query);
+			// return empty array instead of null if no elements
+			if (empty($files)) {
+				$files = array();
+			}
 			return $files;
 		}
 
@@ -74,6 +82,10 @@
 			$parentCategoryId = intval($parentCategoryId);
 			$query = 'SELECT * FROM #__' . self::TABLENAME_CATEGORIES . ' WHERE `pid` = ' . $parentCategoryId . ';';
 			$categories =& $this->_getList($query);
+			// return empty array instead of null if no elements
+			if (empty($categories)) {
+				$categories = array();
+			}
 			return $categories;
 		}
 		function getCategory($categoryId)
