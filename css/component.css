@@ -55,7 +55,7 @@
 	border-top: 1px solid black;
 }
 .dl_file_head {
-	height: 16px; line-height: 16px; background-image: url(&quot;images/download.png&quot;); background-repeat: no-repeat; padding-left: 20px;
+	height: 16px; line-height: 16px; background-image: url(../images/download.png); background-repeat: no-repeat; padding-left: 20px;
 }
 .dl_file_nfo {
 	margin-left: 20px;
