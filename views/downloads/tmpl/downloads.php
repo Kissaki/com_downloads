@@ -4,7 +4,7 @@
 <div id="com_download_wrap">
 	<h1><?php echo JText::_('Downloads'); ?></h1>
 
-	<h2><?php echo JText::_('Kategorien'); ?></h2>
+	<h2><?php echo JText::_('Unter-Kategorien'); ?></h2>
 	<?php if (count($this->categories) > 0) { ?>
 		<ul class="dl_cat_list">
 			<?php $this->printCategoryTree($this->categories); ?>
@@ -13,8 +13,13 @@
 
 
 	<?php
-		foreach ($this->downloads as $download) {
-			include dirname(__FILE__).DS.'download.php';
+		if (!empty( $this->downloads )) {
+			foreach ($this->downloads as $download) {
+				include dirname(__FILE__).DS.'download.php';
+			}
+		}
+		else {
+			echo '<p>' . JText::_('No Downloads here yet.') . '</p>';
 		}
 	?>
 </div>

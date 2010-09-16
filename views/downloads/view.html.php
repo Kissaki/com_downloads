@@ -14,15 +14,20 @@
 	{
 	    function display($tpl = null)
 	    {
+	    	// get models
 			$model  =& $this->getModel('downloads');
+			// get request params
+			$categoryId = JRequest::getInt( 'cid', null );
 
-			$categories =& $model->getCategoryTree();
+			// assign categories
+			$categories =& $model->getCategoryTree($categoryId);
 			$this->assignRef('categories', $categories);
 
-			$categoryId = JRequest::getInt( 'cid', null );
+			// assign downloads
 			$downloads =& $model->getDownloads($categoryId);
 			$this->assignRef('downloads', $downloads);
 
+			// assign download-files
 			$downloadFiles = array();
 			foreach ($downloads as $download) {
 				$files =& $model->getFiles($download->dlid);
