@@ -42,6 +42,9 @@
 .dl_desc {
 	padding: 5px 5px 10px; background-color: rgb(68, 68, 68); min-height: 150px;
 }
+.dl_image {
+	float: left; margin-right: 6px;
+}
 .dl_bottomline {
 	margin: 4px 2px;
 }

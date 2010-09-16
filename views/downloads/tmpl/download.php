@@ -17,6 +17,10 @@
 	</div>
 	<div class="dl_info" id="dl<?php echo $download->dlid; ?>">
 		<div class="dl_desc">
+			<div class="dl_image">
+				<img alt="" src="<?php echo $imgPath; ?>/content/<?php echo $download->image; ?>">
+			</div>
+
 			<?php echo $download->desc; ?>
 		</div>
 		<div class="dl_bottomline">
