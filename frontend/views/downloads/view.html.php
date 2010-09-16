@@ -17,14 +17,24 @@
 	    	// get models
 			$model  =& $this->getModel('downloads');
 			// get request params
+			$downloadId = JRequest::getInt( 'dlid', null );
 			$categoryId = JRequest::getInt( 'cid', null );
 
 			// assign categories
 			$categories =& $model->getCategoryTree($categoryId);
 			$this->assignRef('categories', $categories);
 
+			// get download/-s
+		    if (!empty( $downloadId )) {
+				$download =& $model->getDownload( $downloadId );
+			}
+		    if (!empty( $download )) {
+				$downloads = array($download);
+		    }
+		    else {
+				$downloads =& $model->getDownloads($categoryId);
+		    }
 			// assign downloads
-			$downloads =& $model->getDownloads($categoryId);
 			$this->assignRef('downloads', $downloads);
 
 			// assign download-files

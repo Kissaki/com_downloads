@@ -17,7 +17,11 @@
 	</div>
 	<div class="dl_info" id="dl<?php echo $download->dlid; ?>">
 		<div class="dl_desc">
-			<?php echo $download->desc; ?>
+			<div class="dl_image">
+				<img alt="" src="<?php echo $imgPath; ?>/content/<?php echo $download->image; ?>">
+			</div>
+
+			<?php echo nl2br($download->desc); ?>
 		</div>
 		<div class="dl_bottomline">
 			<!--<div class="dl_actions">
