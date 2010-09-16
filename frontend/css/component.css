@@ -1,0 +1,68 @@
+
+
+#com_download_wrap {
+	color:#ffffff;
+	background-color:#383838;
+}
+#com_download_wrap a,
+#com_download_wrap h1,
+#com_download_wrap h2,
+#com_download_wrap h3,
+#com_download_wrap h4,
+#com_download_wrap h5,
+#com_download_wrap h6 {
+	color:#ffffff;
+}
+#com_download_wrap hr {
+	border-top: 1px solid black;
+}
+#com_download_wrap ul {
+	list-style-type: none;
+}
+.dl_cat_list {
+	border-left: 1px solid orange; margin-left: 8px; padding-left: 2px;
+	list-style-type: none;
+}
+
+.dl_download {
+	background-color: rgb(102, 102, 102); border: 1px solid #c1c1c1; margin-bottom: 6px;
+}
+.dl_topline {
+	margin: 2px;
+}
+.dl_topline_nfo {
+	float: right;
+}
+.dl_info {
+	margin: 0px; display: block;
+}
+.dl_title {
+	font-size: 120%; font-weight: bold;
+}
+.dl_desc {
+	padding: 5px 5px 10px; background-color: rgb(68, 68, 68); min-height: 150px;
+}
+.dl_bottomline {
+	margin: 4px 2px;
+}
+.dl_actions {
+	float: right;
+}
+.dl_files {
+	margin-left: 4px;
+}
+.dl_file {
+	border-top: 1px solid black;
+}
+.dl_file_head {
+	height: 16px; line-height: 16px; background-image: url(../images/download.png); background-repeat: no-repeat; padding-left: 20px;
+}
+.dl_file_nfo {
+	margin-left: 20px;
+}
+.dl_file_actions {
+	float: right;
+}
+.dl_file_nfo_label {
+	font-weight: bold;
+}
