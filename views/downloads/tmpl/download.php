@@ -1,4 +1,5 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined('_JEXEC') or die('Restricted access');
+//! var $download expected ?>
 <div class="dl_download">
 	<?php $dlDate = new JDate($download->date); ?>
 	<?php $imgPath = JURI::base() . '/components/com_downloads/images'; ?>
@@ -60,11 +61,11 @@
 								</span>
 								<?php echo $file->version; ?>
 								<span class="dl_file_nfo_label">
-									<img alt="<?php echo JText::_('Size:'); ?>" src="<?php echo $imgPath; ?>/size.gif" />
+									<img src="<?php echo $imgPath; ?>/size.gif" alt="<?php echo JText::_('Size:'); ?>"  title="<?php echo JText::_('Size:'); ?>" />
 								</span>
 								<?php echo ComDownloadsHelper::formatBytes($file->size); ?>
 								<span class="dl_file_nfo_label">
-									<img alt="<?php echo JText::_('Hits:'); ?>" src="<?php echo $imgPath; ?>/counter.gif" />
+									<img src="<?php echo $imgPath; ?>/counter.gif" alt="<?php echo JText::_('Hits:'); ?>" title="<?php echo JText::_('Hits:'); ?>" />
 								</span>
 								<?php echo $file->hits; ?>
 							</div>

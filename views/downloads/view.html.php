@@ -15,7 +15,12 @@
 	    function display($tpl = null)
 	    {
 			$model  =& $this->getModel('downloads');
-			$downloads =& $model->getDownloads();
+
+			$categories =& $model->getCategoryTree();
+			$this->assignRef('categories', $categories);
+
+			$categoryId = JRequest::getInt( 'cid', null );
+			$downloads =& $model->getDownloads($categoryId);
 			$this->assignRef('downloads', $downloads);
 
 			$downloadFiles = array();
@@ -26,5 +31,22 @@
 			$this->assignRef('downloadFiles', $downloadFiles);
 
 	        parent::display($tpl);
+	    }
+
+	    function printCategoryTree($categries)
+	    {
+	    	foreach ($categries as $category) {
+				echo '<li>';
+				echo '	<a href="' . JRoute::_( 'index.php?cid=' . $category->cid ). '">';
+				echo '		' . $category->name;
+				echo '	</a>';
+
+				if (!empty($category->childs)) {
+					echo '	<ul class="dl_cat_list">';
+						$this->printCategoryTree($category->childs);
+					echo '	</ul>';
+				}
+				echo '</li>';
+			}
 	    }
 	}

@@ -1,22 +1,15 @@
-<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php defined('_JEXEC') or die('Restricted access');
+//! expects $this->categories, ->downloads, ->downloadFiles ?>
 
 <div id="com_download_wrap">
-	<h1>Downloads</h1>
+	<h1><?php echo JText::_('Downloads'); ?></h1>
 
-	<h2>Kategorien (BSP)</h2>
-	<ul class="dl_cat_list">
-		<li>
-			<a href="index.php">Downloads</a>
-			<ul class="dl_cat_list">
-				<li><a href="?cat=1">Enemy Territory</a>
-						<ul class="dl_cat_list">
-							<li><a href="?cat=2">Maps</a></li>
-							<li><a href="?cat=11">Mods</a></li>
-					</ul>
-				</li>
-			</ul>
-		</li>
-	</ul>
+	<h2><?php echo JText::_('Kategorien'); ?></h2>
+	<?php if (count($this->categories) > 0) { ?>
+		<ul class="dl_cat_list">
+			<?php $this->printCategoryTree($this->categories); ?>
+		</ul>
+	<?php } ?>
 
 
 	<?php
