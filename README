@@ -1,0 +1,4 @@
+
+Ported custom Download-Script to be a Joomla component.
+
+Features downloads with several files (add different program-versions to a download!) and allows categorizing downloads in categories.
