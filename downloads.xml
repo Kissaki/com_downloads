@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.6.0" method="upgrade">
+  <name>downloads</name>
+  <creationDate>2011</creationDate>
+  <author>KCode Kissaki</author>
+  <authorUrl>http://kcode.de</authorUrl>
+  <copyright>All Rights Reserved</copyright>
+  <license>All Rights Reserved</license>
+  <version>0.1</version>
+  <description></description>
+
+  <files folder="site">
+    <filename>downloads.php</filename>
+    <filename>controller.php</filename>
+    <folder>views</folder>
+    <folder>models</folder>
+    <folder>images</folder>
+    <folder>helpers</folder>
+    <folder>css</folder>
+  </files>
+  
+  <administration>
+    <menu>Downloads</menu>
+    <files folder="admin">
+      <filename>downloads.php</filename>
+      <filename>controller.php</filename>
+      <folder>views</folder>
+      <folder>models</folder>
+      <folder>tables</folder>
+      <folder>helpers</folder>
+    </files>
+  </administration>
+ 
+</extension>
