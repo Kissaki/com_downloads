@@ -54,6 +54,7 @@
 			
 			// add download if selected
 			if (!empty($download)) {
+				//TODO add correct URI (this is only valid on last pathway element, which is not linked anyway, which currently is always but may change)
 				$pathway->addItem(htmlspecialchars($download->name), JRequest::getURI());
 			}
 		}
