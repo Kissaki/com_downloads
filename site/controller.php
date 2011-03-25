@@ -15,11 +15,23 @@
 		{
 			$app = JFactory::getApplication();
 			$pathway = $app->getPathway();
-			$pathway->addItem( JText::_('Downloads'), JRoute::_( 'index.php?option=com_downloads' ) );
-			// add breadcrumb if category id is passed
-			$categoryId = JRequest::getInt( 'cid' );
+			// add breadcrumb if category id or download id is passed
+			$categoryId = JRequest::getInt('cid', null);
+			// if categoryId is not passed, try to get it from selected download
+			if ($categoryId == null) {
+				$downloadId = JRequest::getInt('dlid', null);
+				if ($downloadId !== null) {
+					$model = $this->getModel('downloads');
+					if ($model !== null) {
+						$download = $model->getDownload($downloadId);
+						if ($download !== null && !empty($download->cid)) {
+							$categoryId = $download->cid;
+						}
+					}
+				}
+			}
 			$elements = array();
-			if (!empty($categoryId)) {
+			if ($categoryId !== null) {
 				do {
 					// get category
 					$model = $this->getModel( 'downloads' );
@@ -38,6 +50,11 @@
 			$elements = array_reverse($elements);
 			foreach ($elements as $el) {
 				$pathway->addItem( $el['name'], $el['route'] );
+			}
+			
+			// add download if selected
+			if (!empty($download)) {
+				$pathway->addItem(htmlspecialchars($download->name), JRequest::getURI());
 			}
 		}
 
