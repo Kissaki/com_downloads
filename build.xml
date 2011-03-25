@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="com_downloads" default="makepackage" basedir=".">
+
+	<property name="dist" value="_dist" />
+
+	<target name="makepackage" description="make package">
+		<mkdir dir="${dist}" />
+		<delete file="${dist}/com_downloads.zip" quiet="true" />
+		<zip destfile="${dist}/com_downloads.zip">
+			<fileset dir="." includes="admin/**,site/**,sql/**,downloads.xml" />
+		</zip>
+	</target>
+
+</project>
