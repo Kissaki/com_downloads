@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
 <project xmlns:ivy="antlib:org.apache.ivy.ant" name="com_downloads" default="makepackage" basedir=".">
 
 	<property name="dist" value="_dist" />

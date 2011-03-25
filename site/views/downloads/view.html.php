@@ -15,13 +15,13 @@
 	    function display($tpl = null)
 	    {
 	    	// get models
-			$model  =& $this->getModel('downloads');
+			$model = $this->getModel('downloads');
 			// get request params
 			$downloadId = JRequest::getInt( 'dlid', null );
 			$categoryId = JRequest::getInt( 'cid', null );
 
 			// assign categories
-			$categories =& $model->getCategoryTree($categoryId);
+			$categories = $model->getCategoryTree($categoryId);
 			$this->assignRef('categories', $categories);
 
 			// get download/-s
@@ -32,7 +32,7 @@
 				$downloads = array($download);
 		    }
 		    else {
-				$downloads =& $model->getDownloads($categoryId);
+				$downloads = $model->getDownloads($categoryId);
 		    }
 			// assign downloads
 			$this->assignRef('downloads', $downloads);

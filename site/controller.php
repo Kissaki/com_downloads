@@ -13,17 +13,17 @@
 		}
 		function _addBreadCrumb()
 		{
-			global $mainframe;
-			$pathway =& $mainframe->getPathway();
+			$app = JFactory::getApplication();
+			$pathway = $app->getPathway();
 			$pathway->addItem( JText::_('Downloads'), JRoute::_( 'index.php?option=com_downloads' ) );
 			// add breadcrumb if category id is passed
-			$categoryId =& JRequest::getInt( 'cid' );
+			$categoryId = JRequest::getInt( 'cid' );
 			$elements = array();
 			if (!empty($categoryId)) {
 				do {
 					// get category
-					$model =& $this->getModel( 'downloads' );
-					$category =& $model->getCategory( $categoryId );
+					$model = $this->getModel( 'downloads' );
+					$category = $model->getCategory( $categoryId );
 					// add bread only if category exists / was found
 					if (!empty($category)) {
 						$elements[] = array(
@@ -45,7 +45,7 @@
 		 * Method to display the view
 		 * @access public
 		 */
-		function display()
+		function display($cachable = false, $urlparams = false)
 		{
 			JRequest::setVar( 'view',   'downloads' );
 			JRequest::setVar( 'layout', 'downloads' );

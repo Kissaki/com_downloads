@@ -81,7 +81,7 @@
 		{
 			$parentCategoryId = intval($parentCategoryId);
 			$query = 'SELECT * FROM #__' . self::TABLENAME_CATEGORIES . ' WHERE `pid` = ' . $parentCategoryId . ';';
-			$categories =& $this->_getList($query);
+			$categories = $this->_getList($query);
 			// return empty array instead of null if no elements
 			if (empty($categories)) {
 				$categories = array();
@@ -97,7 +97,7 @@
 		}
 		function getCategoryTree($parentCategoryId=0)
 		{
-			$categories =& $this->getCategories($parentCategoryId);
+			$categories = $this->getCategories($parentCategoryId);
 			foreach ($categories as $category) {
 				$subCategories =& $this->getCategories($category->cid);
 				$category->childs = $subCategories;

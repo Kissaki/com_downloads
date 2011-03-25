@@ -6,7 +6,7 @@
   <authorUrl>http://kcode.de</authorUrl>
   <copyright>All Rights Reserved</copyright>
   <license>All Rights Reserved</license>
-  <version>0.1</version>
+  <version>0.2</version>
   <description></description>
 
   <install>
@@ -33,6 +33,7 @@
   
   <administration>
     <menu>Downloads</menu>
+
     <files folder="admin">
       <folder>helpers</folder>
       <folder>models</folder>
