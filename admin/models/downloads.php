@@ -51,8 +51,8 @@
 		{
 			$downloadId = intval($downloadId);
 			$query = 'SELECT * FROM #__' . self::TABLENAME_DOWNLOADS . ' WHERE dlid = ' . $downloadId . ' LIMIT 1;';
-			$download = $this->_getList($query);
-			return (count($download) == 1? $download : null);
+			$downloads = $this->_getList($query);
+			return (count($downloads) == 1 ? $downloads[0] : null);
 		}
 
 		function getFiles($downloadId)
@@ -60,7 +60,7 @@
 			$downloadId = intval($downloadId);
 
 			$query = 'SELECT * FROM #__' . self::TABLENAME_FILES . ' WHERE dlid = ' . $downloadId . ' ORDER BY `order` ASC, version DESC';
-			$files =& $this->_getList($query);
+			$files = $this->_getList($query);
 			// return empty array instead of null if no elements
 			if (empty($files)) {
 				$files = array();
@@ -92,14 +92,14 @@
 		{
 			$categoryId = intval($categoryId);
 			$query = 'SELECT * FROM #__' . self::TABLENAME_CATEGORIES . ' WHERE `cid` = ' . $categoryId . ' LIMIT 1;';
-			$categories =& $this->_getList($query);
+			$categories = $this->_getList($query);
 			return (count($categories) > 0 ? $categories[0] : null);
 		}
 		function getCategoryTree($parentCategoryId=0)
 		{
 			$categories = $this->getCategories($parentCategoryId);
 			foreach ($categories as $category) {
-				$subCategories =& $this->getCategories($category->cid);
+				$subCategories = $this->getCategories($category->cid);
 				$category->childs = $subCategories;
 			}
 			return $categories;

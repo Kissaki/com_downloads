@@ -48,7 +48,11 @@
 		function display($cachable = false, $urlparams = false)
 		{
 			JRequest::setVar( 'view',   'downloads' );
-			JRequest::setVar( 'layout', 'downloads' );
+//			if (JRequest::getInt('dlid', null) != null) {
+//				JRequest::setVar( 'layout', 'download' );
+//			} else {
+				JRequest::setVar( 'layout', 'downloads' );
+//			}
 			parent::display();
 		}
 
